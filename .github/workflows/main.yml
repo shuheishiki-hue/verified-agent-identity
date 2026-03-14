@@ -1,3 +1,9 @@
+
+
+
+
+
+
 name: Verify Human Identity
 
 on:
@@ -11,8 +17,18 @@ on:
         description: 'asc'
         required: true
         default: 'ftr AI Agent'
-
 jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4 # Updated version
+      - uses: actions/setup-node@v4 # Updated version
+        with:
+          node-version: '20'
+      - run: npm install
+      - run: npm test
+
+
   verify:
     runs-on: ubuntu-latest
 
